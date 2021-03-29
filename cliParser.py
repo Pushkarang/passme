@@ -5,14 +5,15 @@ def __initParser():
     parser = argparse.ArgumentParser(prog=constants.CLI_NAME, description=constants.CLI_DESCRIPTION)
     subParser = __getSubParser(parser)
 
-    __addInitArgument(parser)
+    __addInitArgument(subParser)
     __addADDArgument(subParser)
     __addGETArgument(subParser)
     return parser
 
 
-def __addInitArgument(parser):
-    parser.add_argument('-i', '--init', action='store_true', help=constants.INIT_CLI_DESCRIPTION)
+def __addInitArgument(subParser):
+    initParser = subParser.add_parser('init', help=constants.INIT_CLI_DESCRIPTION)
+    initParser.add_argument('-f', '--force', action='store_true', help=constants.FORCE_CLI_DESCRIPTION)
 
 def __getSubParser(parser):
     return parser.add_subparsers(dest='subCmd')
@@ -28,7 +29,4 @@ def __addGETArgument(subParser):
 
 def parse(args):
     return vars(__initParser().parse_args(args))
-
-def printHelp():
-    print(__initParser().print_help())
 

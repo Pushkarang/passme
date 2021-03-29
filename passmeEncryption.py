@@ -21,7 +21,7 @@ def encrypt(masterPassword, data):
 
 def decrypt(masterPassword, encData):
     return AES.decrypt(encData, __getEncryptionKey(PBKDF2.getUnlockKey(masterPassword)))
-
+    
 def __getEncryptionKey(unlockKey):
     privateKey = AES.decrypt(readPrivateKey(), unlockKey)
     encryptionKey = RSA.decrypt(readEncryptionKey(), privateKey)
