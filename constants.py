@@ -12,4 +12,5 @@ HASH_ITERATIONS = 1000000
 BASE_FILE_PATH = '/var/lib/passme/'
 INTI_ALREADY_DONE_ERROR = "Passme is initialized already. Use -f to force.\nWarning: Password stored in previous vault will be erased"
 FORCE_CLI_DESCRIPTION = "Force initialize passme"
-INCORRECT_MASTER_PASSWORD = "Master password entered is incorrect."
+INCORRECT_MASTER_PASSWORD = "Master password entered is incorrect"
+KEY_NOT_EXISTS = "Key not exists in vault"

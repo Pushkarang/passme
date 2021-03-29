@@ -3,6 +3,7 @@ from Crypto.Cipher import AES
 from Crypto.Util.Padding import pad, unpad
 import ENCPrivateKey
 from constants import INCORRECT_MASTER_PASSWORD
+import passmeIO
 
 def generateRandomAESEncryptionKey(keyLength):
     return get_random_bytes(keyLength)
@@ -17,4 +18,4 @@ def decrypt(encData, key):
     try:
         return unpad(cipher.decrypt(data), AES.block_size)
     except:
-        print(INCORRECT_MASTER_PASSWORD); exit(-1)
+        passmeIO.logErrorAndExit(INCORRECT_MASTER_PASSWORD)
