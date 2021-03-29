@@ -30,3 +30,5 @@ def __addGETArgument(subParser):
 def parse(args):
     return vars(__initParser().parse_args(args))
 
+def printHelp():
+    print(__initParser().print_help())

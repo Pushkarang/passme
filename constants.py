@@ -1,5 +1,5 @@
 CLI_NAME = "passme"
-CLI_DESCRIPTION = "passme - A terminal local encrypted password manager cli tool"
+CLI_DESCRIPTION = "passme - A terminal local encrypted password manager cli tool.\n Use `sudo` always"
 INIT_CLI_DESCRIPTION = "Initializes passme with master password"
 ADD_CLI_DESCRIPTION = "Add to existing password vault"
 GET_CLI_DESCRIPTION = "Get password for given key from password vault"

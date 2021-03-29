@@ -19,4 +19,4 @@ def promptMasterPassword():
     return bytes(getpass.getpass(MASTER_PASSWORD_PROMPT), 'utf-8')
 
 def logErrorAndExit(message):
-    print(message); exit(-1)
+    print(message); os._exit(-1)
