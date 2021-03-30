@@ -35,8 +35,14 @@ def checkIfInitialized(force):
     if (os.path.exists(BASE_FILE_PATH + PASSWORD_VAULT_FILE_NAME) and not force):
         passmeIO.logErrorAndExit(INTI_ALREADY_DONE_ERROR)
 
-
 def listVault(masterPassword):
     vault = __decryptVault(masterPassword)
     return vault.keys()
+
+def updateInVault(masterPassword, key, password):
+    vault = __decryptVault(masterPassword)
+    if key in vault:
+        vault[key] = password
+    else:
+        passmeIO.logErrorAndExit(KEY_NOT_EXISTS)
 

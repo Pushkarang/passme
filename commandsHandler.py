@@ -24,3 +24,6 @@ def listVault():
     for key in vault.listVault(masterPassword):
         print(key)
 
+def updateInVault(key, password):
+    masterPassword = passmeIO.promptMasterPassword()
+    vault.updateInVault(masterPassword, key, password)
