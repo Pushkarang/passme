@@ -27,3 +27,7 @@ def listVault():
 def updateInVault(key, password):
     masterPassword = passmeIO.promptMasterPassword()
     vault.updateInVault(masterPassword, key, password)
+
+def deleteFromVault(key):
+    masterPassword = passmeIO.promptMasterPassword()
+    vault.deleteFromVault(masterPassword, key)

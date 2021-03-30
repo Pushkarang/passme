@@ -43,6 +43,14 @@ def updateInVault(masterPassword, key, password):
     vault = __decryptVault(masterPassword)
     if key in vault:
         vault[key] = password
+        __writeVault(masterPassword, vault)
     else:
         passmeIO.logErrorAndExit(KEY_NOT_EXISTS)
 
+def deleteFromVault(masterPassword, key):
+    vault = __decryptVault(masterPassword)
+    if key in vault:
+        vault.pop(key)
+        __writeVault(masterPassword, vault)
+    else:
+        passmeIO.logErrorAndExit(KEY_NOT_EXISTS)

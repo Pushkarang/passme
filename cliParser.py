@@ -10,6 +10,7 @@ def __initParser():
     __addGetArgument(subParser)
     __addListArgument(subParser)
     __addUpdateArgument(subParser)
+    __addDeleteArgument(subParser)
     return parser
 
 
@@ -36,6 +37,10 @@ def __addUpdateArgument(subParser):
     updateParser = subParser.add_parser('update', help=constants.UPDATE_CLI_DESCRIPTION)
     updateParser.add_argument('-k', '--key', required=True , help=constants.KEY_CLI_DESCRIPTION)
     updateParser.add_argument('-p', '--password', required=True , help=constants.PASSWORD_CLI_DESCRIPTION)
+
+def __addDeleteArgument(subParser):
+    deleteParser = subParser.add_parser('delete', help=constants.DELETE_CLI_DESCRIPTION)
+    deleteParser.add_argument('-k', '--key', required=True , help=constants.KEY_CLI_DESCRIPTION)
 
 def parse(args):
     return vars(__initParser().parse_args(args))
