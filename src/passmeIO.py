@@ -1,4 +1,4 @@
-from constants import BASE_FILE_PATH, MASTER_PASSWORD_PROMPT
+from constants import BASE_FILE_PATH, MASTER_PASSWORD_PROMPT, PASSWORD_PROMPT
 import os
 import getpass
 
@@ -17,6 +17,9 @@ def readFile(path):
 
 def promptMasterPassword():
     return bytes(getpass.getpass(MASTER_PASSWORD_PROMPT), 'utf-8')
+
+def promptPassword(key):
+    return getpass.getpass(PASSWORD_PROMPT + 'for ' + key)
 
 def logErrorAndExit(message):
     print(message); os._exit(-1)

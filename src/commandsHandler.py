@@ -10,8 +10,9 @@ def init(force):
     initializePassmeKeys(masterPassword)
     vault.writeEmptyVault(masterPassword)
 
-def addToVault(key, password):
+def addToVault(key):
     masterPassword = passmeIO.promptMasterPassword()
+    password = passmeIO.promptPassword(key)
     vault.addToVault(masterPassword, key, password)
 
 def getFromVault(key):
@@ -24,8 +25,9 @@ def listVault():
     for key in vault.listVault(masterPassword):
         print(key)
 
-def updateInVault(key, password):
+def updateInVault(key):
     masterPassword = passmeIO.promptMasterPassword()
+    password = passmeIO.promptPassword(key)
     vault.updateInVault(masterPassword, key, password)
 
 def deleteFromVault(key):
