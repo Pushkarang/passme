@@ -6,8 +6,8 @@ installDeps: setup
 	pip install --upgrade pip
 	pip install -r requirements.txt
 
-build: installDeps passme.py
-	pyinstaller --onedir passme.py
+build: installDeps src/passme.py
+	pyinstaller --onedir src/passme.py
 	rm -rf env
 	rm -rf build
 	rm passme.spec
