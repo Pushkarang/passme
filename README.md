@@ -1,18 +1,40 @@
 # Passme
 
-passme - A terminal local encrypted password manager cli tool.
+Passme is a local password manager written in Python.
 
-### install
+## Installation
 
-$ `./install.sh`
+- Clone the repo
 
-Note: Currently its only tested on MacOs
+```bash
+git clone https://github.com/Pushkarang/passme
+```
+- Run install script inside passme folder
 
-### usage
+```bash
+./install.sh
+```
+## Usage
 
-$ `passme -h`
+Initialize passme
+```bash
+passme init
+```
+Add password
+```bash
+passme add -k mygmail -p secretpassword
+```
+Get password
+```bash
+passme get -k mygmail #Will return secretpassword
+```
+For more
+```bash
+passme -h
+```
 
-### unistall
+## Contributing
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
-$ `./unistall.sh`
-
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
