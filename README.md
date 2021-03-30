@@ -22,11 +22,11 @@ passme init
 ```
 Add password
 ```bash
-passme add -k mygmail -p secretpassword
+passme add -k mygmail # prompts password
 ```
 Get password
 ```bash
-passme get -k mygmail #Will return secretpassword
+passme get -k mygmail # Will return secretpassword
 ```
 For more
 ```bash
