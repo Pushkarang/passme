@@ -10,7 +10,7 @@ Note: Currently its only tested on MacOs
 
 ### usage
 
-$ `sudo passme -h`
+$ `passme -h`
 
 ### unistall
 

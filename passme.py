@@ -1,16 +1,14 @@
 import sys
 import os
-from cliParser import parse, printHelp
-from commandsHandler import init, addToVault, getFromVault
+from cliParser import parse
+from commandsHandler import init, addToVault, getFromVault, listVault
 
 commands = parse(sys.argv[1:])
 
 commandHandlerMap = {
     'init': lambda : init(commands['force']),
     'add': lambda : addToVault(commands['key'], commands['password']),
-    'get': lambda : getFromVault(commands['key'])
+    'get': lambda : getFromVault(commands['key']),
+    'list': lambda: listVault()
 }
-
-if commands['subCmd'] not in commandHandlerMap:
-    printHelp(); os._exit(-1)
-commandHandlerMap[commands['subCmd']]()
+commandHandlerMap[commands['action']]()

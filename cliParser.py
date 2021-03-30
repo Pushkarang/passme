@@ -6,8 +6,9 @@ def __initParser():
     subParser = __getSubParser(parser)
 
     __addInitArgument(subParser)
-    __addADDArgument(subParser)
-    __addGETArgument(subParser)
+    __addAddArgument(subParser)
+    __addGetArgument(subParser)
+    __addListArgument(subParser)
     return parser
 
 
@@ -16,19 +17,19 @@ def __addInitArgument(subParser):
     initParser.add_argument('-f', '--force', action='store_true', help=constants.FORCE_CLI_DESCRIPTION)
 
 def __getSubParser(parser):
-    return parser.add_subparsers(dest='subCmd')
+    return parser.add_subparsers(required=True, dest='action')
 
-def __addADDArgument(subParser):
+def __addAddArgument(subParser):
     appendParser = subParser.add_parser('add', help=constants.ADD_CLI_DESCRIPTION)
     appendParser.add_argument('-k', '--key', required=True , help=constants.KEY_CLI_DESCRIPTION)
     appendParser.add_argument('-p', '--password', required=True , help=constants.PASSWORD_CLI_DESCRIPTION)
 
-def __addGETArgument(subParser):
+def __addGetArgument(subParser):
     appendParser = subParser.add_parser('get', help=constants.GET_CLI_DESCRIPTION)
     appendParser.add_argument('-k', '--key', required=True , help=constants.KEY_CLI_DESCRIPTION)
 
+def __addListArgument(subParser):
+    listParser = subParser.add_parser('list', help=constants.LIST_CLI_DESCRIPTION)
+
 def parse(args):
     return vars(__initParser().parse_args(args))
-
-def printHelp():
-    print(__initParser().print_help())

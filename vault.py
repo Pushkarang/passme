@@ -36,3 +36,7 @@ def checkIfInitialized(force):
         passmeIO.logErrorAndExit(INTI_ALREADY_DONE_ERROR)
 
 
+def listVault(masterPassword):
+    vault = __decryptVault(masterPassword)
+    return vault.keys()
+

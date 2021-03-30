@@ -18,3 +18,9 @@ def getFromVault(key):
     masterPassword = passmeIO.promptMasterPassword()
     password = vault.getFromVault(masterPassword, key)
     print(password)
+
+def listVault():
+    masterPassword = passmeIO.promptMasterPassword()
+    for key in vault.listVault(masterPassword):
+        print(key)
+
