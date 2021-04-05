@@ -2,7 +2,7 @@ import passmeIO
 import json
 import os
 from passmeEncryption import decrypt, encrypt
-from constants import BASE_FILE_PATH, INTI_ALREADY_DONE_ERROR, KEY_NOT_EXISTS
+from constants import BASE_FILE_PATH, INTI_ALREADY_DONE_ERROR, KEY_NOT_EXISTS, NOT_INITIALIZATION_ERROR
 
 PASSWORD_VAULT_FILE_NAME = 'vault.enc'
 
@@ -34,6 +34,10 @@ def getFromVault(masterPassword, key):
 def checkIfInitialized(force):
     if (os.path.exists(BASE_FILE_PATH + PASSWORD_VAULT_FILE_NAME) and not force):
         passmeIO.logErrorAndExit(INTI_ALREADY_DONE_ERROR)
+
+def verifyInit():
+    if not os.path.exists(BASE_FILE_PATH + PASSWORD_VAULT_FILE_NAME):
+        passmeIO.logErrorAndExit(NOT_INITIALIZATION_ERROR)
 
 def listVault(masterPassword):
     vault = __decryptVault(masterPassword)
