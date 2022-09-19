@@ -2,8 +2,7 @@ setup:
 	python3 -m pip install --user virtualenv
 	python3 -m venv env
 	
-installDeps: setup 
-	pip install --upgrade pip
+installDeps: 
 	pip install -r requirements.txt
 
 build: installDeps src/passme.py
@@ -13,7 +12,7 @@ build: installDeps src/passme.py
 	rm passme.spec
 
 install: build
-	sudo ln -s `pwd`/dist/passme/passme /usr/local/passme
+	sudo ln -s `pwd`/dist/passme/passme /usr/local/bin/passme
 
 
 
